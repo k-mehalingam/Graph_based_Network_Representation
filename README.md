@@ -2,9 +2,9 @@
 ## Shortest Paths in a Network
 
 ##### Author
-Karthikeyan Mehalingam
-801210897
-kmehalin@uncc.edu
+Karthikeyan Mehalingam  
+801210897  
+kmehalin@uncc.edu  
 
 ### Introduction:
 This project is an approach to represent a Network using Graph Data Structure and to use Shortest Path Algorithms for finding the shortest paths between two nodes in a network. A Graph is a non-linear data structure that consists of vertices and edges. This can be used to represent a network with network components being the vertices and connections between the network components as edges. In this project, we will be using Dijkstra's Shortest path algorithm to find the shortest distance between two given nodes.
@@ -12,21 +12,21 @@ This project is an approach to represent a Network using Graph Data Structure an
 ### Execution:
 This project can be executed by calling the main_driver.py file with the input file consisting of the initial vertices and edges list along with the optional query and output file.
 
-**python main_driver.py input_file.txt <query_file.txt> <output_file.txt>**
-Options: Enter 1 to give queries from console. 2 to use the queries from the file
-Input 1 - gets input queries from the user.
+**python main_driver.py input_file.txt <query_file.txt> <output_file.txt>**  
+Options: Enter 1 to give queries from console. 2 to use the queries from the file  
+Input 1 - gets input queries from the user.  
 Input 2 - takes queries from the query file.
 
 ##### Input File Format
-The input file must be of the format
-**tail_vertex1 head_vertex1 distance
+The input file must be of the format  
+**tail_vertex1 head_vertex1 distance  
 tail_vertex2 head_vertex2 distance**
 
 #### Query File Format:
 The query file is optional and will be needed only when console input is not given. The query file must be of the format.
 
-**query1 <parameter1> <parameter2>....<parameter3>
-query2 <parameter1> <parameter2>....<parameter3>**
+**query1 \<parameter1\> \<parameter2\>....\<parameter3\>  
+query2 \<parameter1\> \<parameter2\>....\<parameter3\>**
 
 #### List of Queries Supported:
 The project supports the following list of queries that can be run on the graph.
