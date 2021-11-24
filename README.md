@@ -98,7 +98,7 @@ In this project, The locations are considered as vertices of the graph and the p
             **reset_vertices()**  
             	Sets the value of the previous_vertex as empty. can be used after any traversal to reset the vertices.  
 4. **Heap.py**  
-		This file contains the implementation of the min heap which will be used for the calculation of the shortest path using Djikstra's Algorithm.  
+		This file contains the implementation of the min heap which will be used for the calculation of the shortest path using Dijkstra's Algorithm.  
 	**List of Attributes:**  
 		heap: List[List[str, float]] - The array used to represent the min heap for the implementation.  
 		pos: Dict[str: int] - mapper used to map the index value of the vertices with its indexes in the heap.  
@@ -133,13 +133,13 @@ In this project, The locations are considered as vertices of the graph and the p
 		**get_node_from_heap(name)**  
 			gets the value of the node from the heap without deleteting the node.  
 5. **SPT.py**  
-	This file contains the implementation of the shortest path algorithms which are used in this project. In order to compute the shortest path between two vertices, Djikstra's algorithm is used. To get the list of Reachable vertices for a given vertex.  
+	This file contains the implementation of the shortest path algorithms which are used in this project. In order to compute the shortest path between two vertices, Dijkstra's algorithm is used. To get the list of Reachable vertices for a given vertex.  
 	**List of Attributes:**  
 		**graph** - object representing the graph in this project  
 		**min_heap** - object containing the min_heap  
 	**List of Functions:**  
-		**djikstra_shortest_path_algorithm(source, destination)**  
-			implementation of the shortest path calculation using the djikstra's algorithm. It uses the min heap to find the next vertex which is closer to the given source vertex in the graph.  
+		**dijkstra_shortest_path_algorithm(source, destination)**  
+			implementation of the shortest path calculation using the dijkstra's algorithm. It uses the min heap to find the next vertex which is closer to the given source vertex in the graph.  
 		**insert_adjacent_vertices(vertices)**  
 			inserts the list of adjacent vertices of a given vertex into the min heap for the spt calculation.  
 		**trace_path(destination, distance)**  
@@ -147,7 +147,7 @@ In this project, The locations are considered as vertices of the graph and the p
 		**reachability()**  
 			returns the list of vertices which are reachable from every vertex.  
 
-#### Djikstra's Shortest Path Algorithm:  
+#### Dijkstra's Shortest Path Algorithm:  
 It is used to find the shortest path from a source vertex to destination in the graph. At every step of the algorithm we find the next nearest vertex with the smallest value of distance.  
 	**Note:** The vertices and edges which are down will not be used in this algorithm  
 ##### Algorithm Steps:  
@@ -160,7 +160,12 @@ It is used to find the shortest path from a source vertex to destination in the 
 6. repeat steps from 3 to 5 until the destination node is extracted from the min heap.  
 7. once the destination value is extracted, end the algorithm and call the trace_path function to print the path with the final distance computed.  
 ##### Time Complexity  
-The time complexity of the Djikstra's shortest path algorithm is O(V + ElogV). Since all the vertices are visited a mininum of one time it takes O(V) and for every edge it traverses we use a flag to check if a vertex has been visisted or not, which uses a time of O(E logV). Hence the total Time complexity to find the shortest path using Djikstra's is O(V + ElogV).  
+The time complexity of the Dijkstra's shortest path algorithm is O(V + ElogV). Since all the vertices are visited a mininum of one time it takes O(V) and for every edge it traverses we use a flag to check if a vertex has been visisted or not, which uses a time of O(E logV). Hence the total Time complexity to find the shortest path using Dijkstra's is O(ElogV) where V is the number of vertices and E is the number of edges in the graph.  
+Total Time Calculation.
+1. Time taken to insert all the vertices and building the min heap is O(V), where V is the number of Vertices in the graph. 
+2. Time to extract min value from the min heap takes O(logV) time.  
+3. The extract min happens a maximum of E times, where E is the number of edges in the graph. Hence the time taken for extraction is O(ElogV).  
+4. The total time taken for running Dijkstras algorithm is O((V+E)logV).  
 
 #### Reachability Algorithm:  
 This algorithm is used to find the list of vertices that are reachable from a given vertex. This algorithms basically makes use of the Breath First Search Algorithm to find the list of reachable vertices from a given vertex. Hence we run the BFS for all the vertices that are present in the graph.   
@@ -180,6 +185,9 @@ This algorithm is used to find the list of vertices that are reachable from a gi
 
 ##### Time Complexity Analysis:  
 The time taken for the BFS algorithm to traverse throught the graph is O(V + E) where V is the no of vertices in the graph and E being the list of Edges present in the graph. Since we are running BFS for each vertex present in the graph, the total time complexity of the Reachability Algorithm is O(V(V + E))  
+Steps  
+1. BFS visits every vertices through all the given Edges in the graph. Hence the Time complexity to run a BFS on a graph is O(V + E) where V is the number of vertices and E is the list of Edges.  
+2. The algorithm runs BFS on every vertices in the graph seperately. Hence the total time complexity of the algorithm is O(V * time for BFS) ie O(V * O(V+E)) which in turn is O(V(V+E)).
 
 ##### Compiler/Interpreter Used:  
 This project can be run on any python interpreter. The testing of this project was done using **cpython** inpterpreter.  
